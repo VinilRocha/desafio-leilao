@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 interface CardProps {
@@ -27,6 +27,17 @@ export const Container = styled.div`
   margin: 5em 0;
 `;
 
+const appearFromBottom = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY( 5em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 export const Card = styled.div<CardProps>`
   display: flex;
   flex-direction: column;
@@ -38,11 +49,26 @@ export const Card = styled.div<CardProps>`
   max-width: calc(33.3% - 1em);
   margin-bottom: 1.5em;
   position: relative;
+  animation: ${appearFromBottom} 0.5s;
+  @media only screen and (max-width: 1024px) {
+    min-width: calc(50% - 1em);
+    max-width: calc(50% - 1em);
+  }
+  @media only screen and (max-width: 768px) {
+    min-width: 100%;
+    max-width: 100%;
+  }
 
   ${props => cardTypes[props.type || 'andamento']};
 
   &:not(:nth-child(3n)) {
     margin-right: 1.5em;
+    @media only screen and (max-width: 1024px) {
+      margin-right: 1em;
+    }
+    @media only screen and (max-width: 768px) {
+      margin-right: 0;
+    }
   }
   h2 {
     padding-right: 3em;
