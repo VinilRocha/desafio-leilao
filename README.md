@@ -22,7 +22,6 @@ $ cd desafio-leilao
 
 #### Inicializando
 ```sh
-$ cd web
 $ yarn && yarn start
 ```
 
@@ -31,11 +30,10 @@ Abrir [http://localhost:3000](http://localhost:3000) para ver o projeto rodando 
 
 ### Testes
 ```sh
-$ cd web
 $ yarn test
 ```
 
-Roda os testes da aplicação, a partir da pasta "src/__tests".
+Roda os testes da aplicação, a partir da pasta "src/tests".
 
 
 <p align="center" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">by <strong> Vinicius Ferreira</strong> :rocket: </p>
